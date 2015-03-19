@@ -9,13 +9,12 @@
   /**
    * Normalizing browser names
    **/
-  var gecko = 'gecko';
-  var webkit = 'webkit';
-  var safari = 'safari';
   var opera = 'opera';
+  var gecko = 'gecko';
+  var safari = 'safari';
+  var webkit = 'webkit';
   var smartPhone = 'mobile';
   var element = document.documentElement;
-  var browserTypes = new Array();
   // if IE
   function getBrowserType () {
     if (!(/opera|webtv/i.test(userAgent)) && /msie\s(\d)/.test(userAgent)) {
@@ -44,7 +43,7 @@
     } else if (check('iron')) {
       return webkit + ' iron';
     } else if (check('applewebkit/')) {
-      return if (/version\/(\d+)/.test(userAgent)) {;
+      if (/version\/(\d+)/.test(userAgent)) {
         return webkit + ' ' + safari;
       } else {
         return webkit + ' ' + safari + ' ' + safari + RegExp.$1;
@@ -64,7 +63,7 @@
     } else if (check('webtv')) {
       return 'webtv';
     } else if (check('win')) {
-      return if (check('windows nt 6.0')) {;
+      if (check('windows nt 6.0')) {
         return 'win' + ' vista';
       } else {
         return 'win';
@@ -74,12 +73,10 @@
     }
   }// getBrowserType
 
-  browserTypes = getBrowserType();
-  console.log(browserTypes);
+  var browserTypes = getBrowserType();
   /**
    * Adding browser name(s) to HTML tag of document
    **/
-  classList = browserTypes.join(' ');
-  element.className += ' ' + classList;
-  return classList;
+  element.className += ' ' + browserTypes;
+  return browserTypes;
 })(navigator.userAgent.toLowerCase())

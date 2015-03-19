@@ -1,0 +1,22 @@
+{
+  "name": "browser-definer",
+  "version": "1.0.0",
+  "homepage": "https://github.com/alihaghighatkhah/browser-definer",
+  "authors": [
+    "ali haghighatkhah <alihaghighatkhah@yahoo.com>"
+  ],
+  "description": "A light weight Javascript library for adding browser names and versions as class list to the HTML tag.",
+  "main": "browser-definer.js",
+  "keywords": [
+    "browser",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
