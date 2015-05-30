@@ -52,7 +52,10 @@
       return geckog;
     } else if (check('j2me')) {
       return smartPhone + ' j2me';
-    } else if (check('iphone')) {
+    }
+  }// getBrowserType
+  function osType () {
+    if (check('iphone')) {
       return smartPhone + ' iphone';
     } else if (check('ipod')) {
       return smartPhone + ' ipod';
@@ -71,12 +74,10 @@
     } else if (check('linux') || check('x11')) {
       return 'linux';
     }
-  }// getBrowserType
-
-  var browserTypes = getBrowserType();
+  }// osType
   /**
    * Adding browser name(s) to HTML tag of document
    **/
-  element.className += ' ' + browserTypes;
-  return browserTypes;
+  var classList = element.className + ' ' + getBrowserType() + ' ' + osType();
+  element.className = (element.className == '') ? classList.trim() : classList;
 })(navigator.userAgent.toLowerCase())
